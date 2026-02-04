@@ -48,7 +48,7 @@ function Board() {
     formData.append("image", file);
 
     const { data } = await axios.post(
-      import.meta.env.VITE_API_SERVER,
+      `${import.meta.env.VITE_API_SERVER}/api/image`,
       formData,
     );
 
