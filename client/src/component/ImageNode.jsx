@@ -10,11 +10,14 @@ function ImageNode({ data, id }) {
 
   const handleDeleteNode = async () => {
     try {
-      await axios.delete("http://localhost:8080/api/image/delete", {
-        params: {
-          filePath: data.filePath,
+      await axios.delete(
+        `${import.meta.env.VITE_API_SERVER}/api/image/delete`,
+        {
+          params: {
+            filePath: data.filePath,
+          },
         },
-      });
+      );
 
       setNodes((nodes) => nodes.filter((n) => n.id !== id));
     } catch (error) {
